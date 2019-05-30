@@ -1,37 +1,28 @@
-import {useState} from 'react'
 import cn from 'classnames'
+import {useObserver} from 'mobx-react-lite'
 
-const ReininPair = ({pair}) => {
-  const [currentPair, setData]  = useState(pair)
-
-  const setActivePair = (pairName) => {
-    console.log(pairName)
-    setData({...pair, active: pairName})
-  }
-
-  console.log(pair, currentPair)
-
-  return (
+const ReininPair = (({pair}) => {
+  return useObserver(() =>(
     <div className={'reininPair'}>
       <div
         className={'reininOption'}
-        onClick={() => setActivePair(pair.options[0])}>
-        {pair.options[0]}
+        onClick={() => pair.setActiveSign(pair.data[0])}>
+        {pair.data[0]}
       </div>
       <div
         className={cn(
           'highlight',
           {
-            'leftHighlight': currentPair.active === currentPair.options[0],
-            'rightHighlight': currentPair.active === currentPair.options[1]
+            'leftHighlight': pair.activeSign === pair.data[0],
+            'rightHighlight': pair.activeSign === pair.data[1]
           }
             )}
       />
-      <div className={'nullOption'} onClick={() => setActivePair()} />
+      <div className={'nullOption'} onClick={() => pair.setActiveSign()} />
       <div
         className={'reininOption'}
-        onClick={() => setActivePair(pair.options[1])}>
-        {pair.options[1]}
+        onClick={() => pair.setActiveSign(pair.data[1])}>
+        {pair.data[1]}
       </div>
       <style jsx>{`
       .reininPair {
@@ -85,7 +76,7 @@ const ReininPair = ({pair}) => {
       }`}
       </style>
     </div>
-  )
-}
+  ))
+})
 
 export default ReininPair
