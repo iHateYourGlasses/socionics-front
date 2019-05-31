@@ -10,7 +10,7 @@ const Reinin = () => {
       <section className={'raininPairs'}>
         {
           store.reininPairs && store.reininPairs.data.map((pair, pairNum) => (
-            <ReininPair pair={pair} key={pairNum}/>
+            <ReininPair pair={pair} key={pair.data[0]}/>
           ))
         }
       </section>
