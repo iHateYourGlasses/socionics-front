@@ -2,7 +2,7 @@ import {createContext, useContext} from 'react'
 import {useLocalStore } from 'mobx-react-lite'
 import reinin from '../data/reinin'
 import ReininPairs from './reininPairs'
-import {observable} from "mobx";
+import {observable} from 'mobx'
 
 export const storeContext = createContext(null)
 
@@ -16,7 +16,7 @@ const createStore = () => {
   const store = observable({
     reininPairs: pairs
   })
-  if( typeof window !== "undefined"){
+  if( typeof window !== 'undefined'){
     window.store = store
   }
 

@@ -16,7 +16,7 @@ const ReininPair = (({pair}) => {
             'leftHighlight': pair.activeSign === pair.data[0],
             'rightHighlight': pair.activeSign === pair.data[1]
           }
-            )}
+        )}
       />
       <div className={'nullOption'} onClick={() => pair.setActiveSign()} />
       <div

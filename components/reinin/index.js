@@ -9,7 +9,7 @@ const Reinin = () => {
       <header className={'appHeader'}>Типировщик</header>
       <section className={'raininPairs'}>
         {
-          store.reininPairs && store.reininPairs.data.map((pair, pairNum) => (
+          store.reininPairs && store.reininPairs.data.map((pair) => (
             <ReininPair pair={pair} key={pair.data[0]}/>
           ))
         }
@@ -23,8 +23,8 @@ const Reinin = () => {
         }
         .raininPairs {
           margin: 15px;
-        }
-      `}</style>
+        }`}
+      </style>
       <style jsx global>{
         `
       * {
